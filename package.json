@@ -16,7 +16,7 @@
     "test": "node --test tests/*.test.mjs",
     "test:ui": "node tests/ui.mjs",
     "test:web": "node --test tests/lane-model.test.mjs tests/tutorial.test.mjs tests/shift-model.test.mjs tests/release.test.mjs",
-    "test:web-ui": "node scripts/build-web.mjs --test && node tests/web-lane.ui.mjs && node tests/tutorial.ui.mjs && node tests/shift.ui.mjs && node tests/release.ui.mjs",
+    "test:web-ui": "node scripts/build-web.mjs && node scripts/build-web.mjs --test && node tests/web-lane.ui.mjs && node tests/tutorial.ui.mjs && node tests/shift.ui.mjs && node tests/release.ui.mjs",
     "test:web-balance": "node tests/shift-balance.mjs",
     "test:balance": "node tests/balance.mjs",
     "test:extended": "node tests/extended.mjs",
@@ -27,7 +27,7 @@
     "build:web-test": "node scripts/build-web.mjs --test",
     "start:windows": "electron .",
     "preview:windows": "node scripts/serve.mjs",
-    "test:browsers": "node tests/browser-smoke.mjs"
+    "test:browsers": "node scripts/build-web.mjs && node tests/browser-smoke.mjs"
   },
   "devDependencies": {
     "electron": "44.3.0",
