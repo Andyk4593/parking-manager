@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>PARKING MANAGER — композиция web-версии</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="style.css">
+  <script src="scene.js" defer></script>
+</head>
+<body>
+  <main id="stage" aria-label="Статичный макет игрового экрана Parking Manager">
+    <svg id="world" viewBox="0 0 1920 1080" role="img" aria-label="Четыре полосы слева направо. Восемь объёмных автомобилей пяти типов, крупные номера, два открытых и два закрытых шлагбаума."></svg>
+    <header class="hud">
+      <div class="brand"><span class="parking-icon">P</span><div><h1>PARKING<br>MANAGER</h1><span class="brand-sub">ПАРКОВКА ПОД КОНТРОЛЕМ</span></div></div>
+      <div class="stats" aria-label="Пример показателей смены">
+        <div class="stat"><span>СЧЁТ</span><strong class="score">00185</strong></div>
+        <div class="stat time"><span>ДО КОНЦА СМЕНЫ</span><strong>02:18</strong><i class="time-track"><i></i></i></div>
+        <div class="stat lives"><span>ЖИЗНИ</span><div class="hearts" aria-label="Осталось две жизни из трёх"></div></div>
+      </div>
+    </header>
+    <div class="road-label"><span>ВЪЕЗД НА ПАРКОВКУ <b>→</b></span><span>НАЖМИ НА НУЖНЫЙ ШЛАГБАУМ</span></div>
+    <div id="plates" aria-label="Номера автомобилей"></div>
+    <div id="gate-zones" aria-label="Расположение зон нажатия"></div>
+    <footer class="legend">
+      <span><i class="mini-plate white">✓</i> БЕЛЫЙ — ПРОПУСТИ <b>+5</b></span>
+      <span><i class="mini-plate black">×</i> ЧЁРНЫЙ — НЕ ОТКРЫВАЙ</span>
+      <span class="key-help"><kbd>1</kbd><kbd>2</kbd><kbd>3</kbd><kbd>4</kbd> ИЛИ НАЖАТИЕ</span>
+    </footer>
+  </main>
+  <aside id="review" aria-label="Просмотр макета">
+    <span>МАКЕТ · ИТЕРАЦИЯ 6</span>
+    <button id="density" type="button" aria-pressed="false">Проверить все номера</button>
+    <button id="fullscreen" type="button">На весь экран</button>
+  </aside>
+</body>
+</html>

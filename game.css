@@ -1,0 +1,59 @@
+#world{pointer-events:none}.gate-zone{pointer-events:auto;background:transparent;cursor:pointer;touch-action:manipulation;color:var(--cream);padding:0}.gate-zone:hover:not(:disabled){border-color:#e5efba;background:#c1e8b912}.gate-zone:focus-visible{outline:5px solid #f5d78a;outline-offset:4px}.gate-zone:disabled{cursor:default;background:transparent}.gate-zone.open{background:#c1e8b912;border-color:#d6f4b6}.gate-zone.busy .gate-key{background:#335e48;border-color:#7e9373}.plate{pointer-events:none;will-change:transform}.plate::before{left:var(--tail,94px)}.plate.resolved{visibility:hidden}.plate.black{box-shadow:4px 4px 0 #3c4b47}.hearts svg{flex:none}
+.small-label{font-size:14px;font-weight:700;letter-spacing:2px;color:#b6d2a7}.secondary:disabled{opacity:.5;cursor:default}button:focus-visible{outline:4px solid #f4d386;outline-offset:4px}button{touch-action:manipulation}.overlay{position:absolute;inset:156px 0 86px;display:flex;align-items:center;justify-content:center;background:#163326c9;z-index:10}.overlay.hidden{display:none}.dialog{max-width:900px;min-width:770px;text-align:center;background:#eae9d3;color:#203e2c;border:7px solid #759767;box-shadow:10px 10px 0 #193c2a;padding:40px 50px}.dialog .small-label{color:#45744e}.dialog h2{font:28px/1.6 var(--pixel);margin:20px 0}.dialog p{font:25px/1.6 Arial;margin:12px 0 28px}.primary{background:#006f3d;color:#f4f0d9;border:4px solid #388b55;box-shadow:0 6px 0 #02472c;padding:20px 50px;min-height:80px;font:bold 24px Arial;cursor:pointer}.primary:hover{background:#087e47}#feedback{position:absolute;top:594px;left:290px;right:380px;height:44px;display:flex;align-items:center;justify-content:center;font:bold 23px Arial;color:#173e2b;z-index:5;pointer-events:none}#feedback span{padding:9px 24px;background:#e9e8cf;border-left:7px solid #8eaf73;box-shadow:4px 4px 0 #3d5541}#feedback .bad{background:#f4dbb3;border-color:#b66c48}body{user-select:none;touch-action:manipulation}
+[hidden]{display:none!important}
+.tutorial-mode .key-help kbd{width:66px}
+.tutorial-mode #feedback{display:none}
+.tutorial-mode .road-label>span:first-child{font-size:17px}
+#training-controls{position:absolute;top:162px;right:48px;display:flex;gap:12px;z-index:4}
+#training-controls button{min-height:40px;padding:7px 18px;font-size:17px}
+#training-panel{position:absolute;top:798px;left:150px;right:150px;min-height:168px;padding:24px 28px;display:flex;align-items:center;gap:30px;background:#eae9d3;color:#203e2c;border:4px solid #83a278;box-shadow:7px 7px 0 #294c37;z-index:6}
+.training-step{font:23px var(--pixel);white-space:nowrap;color:#006f3d}
+.training-copy{flex:1;min-width:0}
+.training-copy h2{font:20px/1.5 var(--pixel);margin:0 0 12px}
+.training-copy p{font:23px/1.35 Arial;margin:0;max-width:1010px}
+#tutorial-next{padding:18px 24px;min-width:220px;font-size:23px}
+.tutorial-focus{outline:5px solid #ffe5a0;outline-offset:5px;animation:training-focus 1.4s ease-in-out infinite}
+#tutorial-finger{position:absolute;left:1508px;width:80px;height:106px;z-index:7;pointer-events:none;animation:training-finger 1.4s ease-in-out infinite;filter:drop-shadow(3px 4px 0 #16332688)}
+#tutorial-finger svg{width:100%;height:100%;position:relative}
+#tutorial-finger i{position:absolute;left:13px;top:-10px;width:36px;height:36px;border:5px solid #ffe5a0;border-radius:50%;animation:training-ring 1.4s ease-out infinite}
+.dialog-actions{display:flex;justify-content:center;gap:12px;margin-top:24px;flex-wrap:wrap}
+.dialog-actions .secondary{min-height:52px;font-size:19px}
+@keyframes training-finger{0%,100%{transform:translateY(12px)}45%,60%{transform:translateY(0)}}
+@keyframes training-ring{0%,30%{transform:scale(.5);opacity:0}55%{opacity:1}100%{transform:scale(1.5);opacity:0}}
+@keyframes training-focus{0%,100%{outline-color:#ffe5a0}50%{outline-color:#c9ae69}}
+@media(prefers-reduced-motion:reduce){.tutorial-focus,#tutorial-finger,#tutorial-finger i{animation:none}#tutorial-finger i{opacity:.7}}
+
+/* Full shift: only player controls remain above the road. */
+#game-controls{position:absolute;top:162px;right:48px;display:flex;gap:12px;z-index:4}
+#game-controls button{min-height:40px;padding:7px 18px;font-size:17px}
+#feedback{top:162px;left:570px;right:600px;height:38px;font-size:18px;justify-content:flex-start}
+#feedback span{padding:7px 16px;max-width:100%;white-space:nowrap}
+.key-help kbd{width:66px}
+
+/* Release menu: local profile and settings, outside the playfield. */
+.secondary{min-height:60px;background:#315e45;color:#edf2d9;border:2px solid #81a077;padding:12px 19px;font:bold 17px Arial;cursor:pointer}
+.dialog{width:940px;max-width:940px;min-width:0;padding:26px 40px}
+.dialog h2{font-size:26px;margin:14px 0}
+.dialog p{font-size:24px;line-height:1.4;margin:10px 0 18px}
+.dialog .primary{min-height:68px;padding:15px 46px}
+.dialog-actions{margin-top:18px}
+#join-fields{width:530px;margin:18px auto;text-align:left;display:flex;flex-direction:column;gap:8px}
+#join-fields label{font-size:21px;font-weight:bold}
+#nickname{width:100%;height:58px;border:3px solid #759767;background:#fffcec;color:#203e2c;padding:10px 16px;font:26px Arial;user-select:text}
+#nickname:focus-visible{outline:4px solid #006f3d;outline-offset:2px}
+#nickname[aria-invalid=true]{border-color:#984c36}
+#nickname-error{color:#853a29;font-size:19px;min-height:0}
+#nickname-error:empty{display:none}
+#entry-hint{font-size:18px;line-height:1.35;color:#48624b}
+#personal-panel{margin:16px 0 20px}
+#personal-result{font-size:21px;font-weight:bold;overflow-wrap:anywhere;margin:0 0 6px}
+#storage-note{font:16px/1.4 Arial;color:#48624b}
+.dialog-settings{display:flex;justify-content:center;gap:12px;margin-top:22px;padding-top:18px;border-top:2px solid #b7c6a2}
+.dialog-settings button{font-size:18px;min-height:44px;padding:9px 18px}
+#feedback{left:490px;right:680px;font-size:17px}
+#game-controls{gap:8px}#game-controls button{padding:7px 14px}
+#attract-screen{position:absolute;inset:156px 0 86px;z-index:20;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;background:#153b2b55;border:0;color:#fff8e3;text-shadow:4px 4px #163326}
+#attract-screen:hover{background:#153b2b55}
+#attract-screen>span{font-size:22px;letter-spacing:5px;background:#16492ded;padding:12px 26px}
+#attract-screen strong{font:42px/1.6 var(--pixel);padding:26px 40px;background:#16492ded;border:4px solid #9bbb7e;box-shadow:8px 8px #153b2b}
+#attract-screen small{font:22px Arial;background:#16492ded;padding:12px 24px}

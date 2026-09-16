@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; media-src 'self' blob:; connect-src 'none'; object-src 'none'; base-uri 'none'"><title>PARKING MANAGER</title><link rel="stylesheet" href="style.css"></head>
+<body><main id="stage" aria-label="Игра Parking Manager">
+  <div id="world" aria-hidden="true"></div>
+  <header class="hud">
+    <div class="brand"><span class="brand-icon">P</span><div><strong>PARKING<br>MANAGER</strong><small>ПАРКОВКА ПОД КОНТРОЛЕМ</small></div></div>
+    <div class="stat score-stat"><span>ОЧКИ</span><b id="score">00000</b></div>
+    <div class="stat"><span>ВРЕМЯ СМЕНЫ</span><b id="timer">00:00</b></div>
+    <div class="stat life-stat"><span>ЖИЗНИ</span><b id="lives" aria-label="3 жизни">♥ ♥ ♥</b></div>
+    <button id="sound" class="tool" aria-label="Выключить звук" aria-pressed="false">♪<small>ЗВУК</small></button>
+    <button id="pause" class="tool" aria-label="Пауза">Ⅱ<small>ПАУЗА</small></button>
+  </header>
+  <div class="road-caption"><span><i class="status-dot"></i><b id="mode-label">ГОРОДСКАЯ ПАРКОВКА</b><span id="player-label"></span></span><span id="level-label">УРОВЕНЬ 01</span><div class="difficulty-meter"><i id="difficulty-fill"></i></div></div>
+  <div id="gate-controls" aria-label="Управление шлагбаумами"></div>
+  <div class="parking-sign"><strong>P</strong><span>ПАРКОВКА</span><small>ВЪЕЗД →</small></div>
+  <div class="control-room"><span>ПОСТ ОХРАНЫ</span><div class="room-screen"><i></i><i></i><i></i><i></i></div><small id="traffic-label">4 ПОЛОСЫ / 1 ДИСПЕТЧЕР</small></div>
+  <footer class="legend"><span><i class="sample-plate white">А123</i> БЕЛЫЙ НОМЕР <b>ОТКРОЙ · +5</b></span><span><i class="sample-plate black">А123</i> ЧЁРНЫЙ НОМЕР <b>НЕ ОТКРЫВАЙ</b></span><span class="legend-input">ТАП ПО ШЛАГБАУМУ <em>ИЛИ</em> <kbd>1</kbd><kbd>2</kbd><kbd>3</kbd><kbd>4</kbd></span></footer>
+  <div id="toast" class="toast" role="status"></div>
+  <section id="lobby" class="overlay lobby">
+    <div class="welcome-panel">
+      <div class="eyebrow"><i></i> ОДИН ИГРОК · ТВОЯ СМЕНА</div>
+      <h1>БОЛЬШОЙ ПОТОК.<br><span>ПОЛНЫЙ КОНТРОЛЬ.</span></h1>
+      <p class="intro">Четыре въезда. Три жизни.<br>Открывай шлагбаум, когда номер станет белым.</p>
+      <div class="rule-strip"><span><i class="sample-plate white">А123</i> ПРОПУСТИ <b>+5</b></span><span><i class="sample-plate black">А123</i> НЕ ПУСКАЙ <b>−15 ЗА ПРОЕЗД</b></span></div>
+      <form id="join-form"><label for="nickname">КАК ТЕБЯ ЗОВУТ?</label><div class="join-row"><input id="nickname" type="text" maxlength="16" autocomplete="off" spellcheck="false" placeholder="Введи ник" inputmode="none" aria-describedby="name-error"><button type="submit" class="primary">УЧАСТВОВАТЬ <span>→</span></button></div><p id="name-error" role="alert"></p></form>
+      <div id="keyboard" class="keyboard" aria-label="Экранная клавиатура"></div>
+      <div class="welcome-bottom"><span>ТАП ИЛИ КЛАВИШИ <b>1 2 3 4</b></span><span>СМЕНА ДО <b>10 МИНУТ</b></span></div>
+    </div>
+    <aside class="leader-panel"><div class="leader-heading"><span class="cup">♜</span><div><small>ДОСКА ПОЧЁТА</small><h2>ЛУЧШИЕ<br>ДИСПЕТЧЕРЫ</h2></div></div><ol id="leader-list"></ol><p class="ranking-note">10 лучших результатов<br>Твоё имя может быть здесь</p></aside>
+    <button id="exit" class="exit-button">ВЫЙТИ ИЗ ИГРЫ</button>
+  </section>
+  <section id="attract" class="overlay attract hidden"><div class="demo-badge">АВТОИГРА · ПОСМОТРИ, КАК ЭТО РАБОТАЕТ</div><button id="wake" class="wake-button">Коснитесь, чтобы начать<span>ТВОЯ СМЕНА НАЧИНАЕТСЯ ЗДЕСЬ</span></button></section>
+  <section id="countdown" class="overlay countdown hidden"><strong id="countdown-number">3</strong><span>БЕЛЫЙ — ОТКРОЙ. ЧЁРНЫЙ — ПОДОЖДИ.</span></section>
+  <section id="result" class="overlay centered hidden"><div class="result-panel"><div class="eyebrow">СМЕНА ЗАВЕРШЕНА</div><h2 id="result-title">ПАРКОВКА ЗАКРЫТА</h2><p id="result-player"></p><strong id="result-score">0</strong><span class="result-caption">ОЧКОВ</span><div id="result-stats"></div><p id="result-rank"></p><button id="again" class="primary">ЕЩЁ ОДНА СМЕНА →</button><button id="to-lobby" class="secondary">РЕЙТИНГ И НОВЫЙ ИГРОК</button></div></section>
+  <section id="paused" class="overlay centered hidden"><div class="pause-panel"><div class="eyebrow">ПОТОК ОСТАНОВЛЕН</div><h2>ПАУЗА</h2><button id="resume" class="primary">ПРОДОЛЖИТЬ →</button><button id="abandon" class="secondary">ЗАКОНЧИТЬ БЕЗ РЕЗУЛЬТАТА</button><button id="fullscreen" class="secondary">ПОЛНЫЙ ЭКРАН / ОКНО · F11</button></div></section>
+  <div id="storage-warning" class="storage-warning hidden" role="alert"></div>
+</main><script src="phaser.min.js"></script><script src="app.js"></script></body></html>

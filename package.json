@@ -1,0 +1,62 @@
+{
+  "name": "parking-manager",
+  "productName": "Parking Manager",
+  "version": "1.1.0",
+  "description": "PARKING MANAGER — пятиминутная web-аркада для ПК",
+  "author": "Parking Manager",
+  "license": "MIT",
+  "main": "electron/main.cjs",
+  "type": "module",
+  "packageManager": "pnpm@11.19.0",
+  "scripts": {
+    "build": "node scripts/build-web.mjs",
+    "build:web": "node scripts/build-web.mjs",
+    "build:pages": "node scripts/build-web.mjs --pages",
+    "start": "node scripts/serve-web.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "test:ui": "node tests/ui.mjs",
+    "test:web": "node --test tests/lane-model.test.mjs tests/tutorial.test.mjs tests/shift-model.test.mjs tests/release.test.mjs",
+    "test:web-ui": "node scripts/build-web.mjs --test && node tests/web-lane.ui.mjs && node tests/tutorial.ui.mjs && node tests/shift.ui.mjs && node tests/release.ui.mjs",
+    "test:web-balance": "node tests/shift-balance.mjs",
+    "test:balance": "node tests/balance.mjs",
+    "test:extended": "node tests/extended.mjs",
+    "setup:runtime": "node node_modules/electron/install.js",
+    "package": "node scripts/build.mjs && electron-builder --win portable --x64",
+    "preview": "node scripts/serve-web.mjs",
+    "build:windows": "node scripts/build.mjs",
+    "build:web-test": "node scripts/build-web.mjs --test",
+    "start:windows": "electron .",
+    "preview:windows": "node scripts/serve.mjs",
+    "test:browsers": "node tests/browser-smoke.mjs"
+  },
+  "devDependencies": {
+    "electron": "44.3.0",
+    "electron-builder": "26.15.3",
+    "esbuild": "0.28.2",
+    "phaser": "3.90.0",
+    "playwright": "1.62.1"
+  },
+  "build": {
+    "appId": "local.parking.manager",
+    "asar": true,
+    "directories": {
+      "output": "release",
+      "buildResources": "public/assets"
+    },
+    "files": [
+      "dist/**/*",
+      "electron/**/*",
+      "package.json"
+    ],
+    "win": {
+      "target": "portable",
+      "icon": "public/assets/icon.ico",
+      "signAndEditExecutable": false
+    },
+    "portable": {
+      "artifactName": "ParkingManager.exe",
+      "requestExecutionLevel": "user"
+    },
+    "npmRebuild": false
+  }
+}

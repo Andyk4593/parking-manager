@@ -1,0 +1,11 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import { build } from 'esbuild';
+const root = path.resolve(import.meta.dirname, '..');
+const dist = path.join(root, 'dist');
+fs.mkdirSync(dist, { recursive: true });
+fs.cpSync(path.join(root, 'public'), dist, { recursive: true });
+fs.copyFileSync(path.join(root, 'node_modules/phaser/dist/phaser.min.js'), path.join(dist, 'phaser.min.js'));
+fs.copyFileSync(path.join(root, 'src/style.css'), path.join(dist, 'style.css'));
+await build({ entryPoints: [path.join(root, 'src/app.mjs')], outfile: path.join(dist, 'app.js'), bundle: true, format: 'iife', target: 'chrome130', minify: true, sourcemap: false });
+console.log('Built offline web app: dist/');

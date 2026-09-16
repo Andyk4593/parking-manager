@@ -1,0 +1,12 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import {build} from 'esbuild';
+const testing=process.argv.includes('--test'),pages=process.argv.includes('--pages');
+if(testing&&pages)throw new Error('Test hooks must not be included in the Pages site.');
+const root=path.resolve(import.meta.dirname,'..'),src=path.join(root,'web'),dest=pages?root:path.join(root,testing?'web-test':'web-dist');
+fs.mkdirSync(dest,{recursive:true});
+for(const name of ['index.html','base.css','game.css'])fs.copyFileSync(path.join(src,name),path.join(dest,name));
+fs.cpSync(path.join(src,'assets'),path.join(dest,'assets'),{recursive:true});
+await build({entryPoints:[path.join(src,'src/app.mjs')],outfile:path.join(dest,'game.js'),define:{__TEST__:String(testing)},bundle:true,format:'iife',target:'es2020',minify:true,legalComments:'none'});
+fs.writeFileSync(path.join(dest,'.nojekyll'),'');
+console.log(`Web ${testing?'test':'release'} built: ${dest}/index.html`);
